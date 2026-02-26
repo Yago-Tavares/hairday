@@ -1,12 +1,12 @@
 import { cva, type VariantProps } from "class-variance-authority";
+import Text from "./text";
 
 export const ButtonVariants = cva(
   "rounded-lg flex items-center justify-center cursor-pointer",
   {
     variants: {
       variant: {
-        primary:
-          "bg-primary text-gray-900 hover:border-2 hover:border-primary-light",
+        primary: "bg-primary hover:border-2 hover:border-primary-light",
       },
       size: {
         md: "h-14 px-35 text-base",
@@ -23,6 +23,17 @@ export const ButtonVariants = cva(
   },
 );
 
+export const TextButtonVariants = cva("", {
+  variants: {
+    variant: {
+      primary: "text-gray-900",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+  },
+});
+
 interface ButtonProps
   extends
     Omit<React.ComponentProps<"button">, "disabled">,
@@ -36,7 +47,9 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button className={ButtonVariants({ variant, disabled })} {...props}>
-      {children}
+      <Text variant="title-sm" className={TextButtonVariants({ variant })}>
+        {children}
+      </Text>
     </button>
   );
 }

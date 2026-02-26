@@ -1,5 +1,6 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 import Icon from "./icon";
+import { TextVariants } from "./text";
 
 export const TextInputVariants = cva(
   "rounded-lg border flex items-center justify-center gap-2 w-fit focus-within:border-primary",
@@ -64,7 +65,10 @@ export default function TextInput({
   return (
     <div className={TextInputVariants({ variant, size })}>
       <Icon svg={icon} className={IconInputVariants({ variant, size })} />
-      <input className={InputVariants({ disabled })} {...props} />
+      <input
+        className={cx(InputVariants({ disabled }), TextVariants())}
+        {...props}
+      />
     </div>
   );
 }

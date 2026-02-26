@@ -1,15 +1,15 @@
 import { cva, type VariantProps } from "class-variance-authority";
+import Text from "./text";
 
 export const TimeSelectVariants = cva(
   "py-2 px-5 rounded cursor-pointer w-fit",
   {
     variants: {
       variant: {
-        primary:
-          "bg-gray-600 border border-gray-500 text-gray-200 hover:bg-gray-500",
+        primary: "bg-gray-600 border border-gray-500 hover:bg-gray-500",
       },
       isSelected: {
-        true: "border-primary text-primary",
+        true: "border-primary",
       },
       disabled: {
         true: "bg-transparent text-gray-500 border-gray-600 pointer-events-none",
@@ -22,6 +22,25 @@ export const TimeSelectVariants = cva(
     },
   },
 );
+
+export const TimeSelectTextVariants = cva("", {
+  variants: {
+    variant: {
+      primary: "text-gray-200",
+    },
+    isSelected: {
+      true: "text-primary",
+    },
+    disabled: {
+      true: "text-gray-500",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    isSelected: false,
+    disabled: false,
+  },
+});
 
 interface TimeSelectProps
   extends
@@ -40,7 +59,11 @@ export default function TimeSelect({
       {...props}
       className={TimeSelectVariants({ variant, isSelected, disabled })}
     >
-      <p>{children}</p>
+      <Text
+        className={TimeSelectTextVariants({ variant, isSelected, disabled })}
+      >
+        {children}
+      </Text>
     </div>
   );
 }
