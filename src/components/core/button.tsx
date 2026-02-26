@@ -1,11 +1,42 @@
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant: 'primary' | 'secondary'
-    disabled: boolean
-    children: React.ReactNode
-}
+import { cva, type VariantProps } from "class-variance-authority";
 
-export default function Button({ variant, disabled, children, ...props }: ButtonProps) {
-    return (
-        <button disabled={disabled} className={variant === 'primary' ? 'bg-yellow-light text-gray-900' : 'bg-gray-900 text-yellow-light'} {...props}>{children}</button>
-    )
+export const ButtonVariants = cva(
+  "rounded-lg flex items-center justify-center cursor-pointer",
+  {
+    variants: {
+      variant: {
+        primary:
+          "bg-primary text-gray-900 hover:border-2 hover:border-primary-light",
+      },
+      size: {
+        md: "h-14 px-35 text-base",
+      },
+      disabled: {
+        true: "opacity-30 pointer-events-none",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "md",
+      disabled: false,
+    },
+  },
+);
+
+interface ButtonProps
+  extends
+    Omit<React.ComponentProps<"button">, "disabled">,
+    VariantProps<typeof ButtonVariants> {}
+
+export default function Button({
+  variant,
+  disabled,
+  children,
+  ...props
+}: ButtonProps) {
+  return (
+    <button className={ButtonVariants({ variant, disabled })} {...props}>
+      {children}
+    </button>
+  );
 }
