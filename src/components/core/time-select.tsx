@@ -1,27 +1,24 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import Text from "./text";
 
-export const TimeSelectVariants = cva(
-  "py-2 px-5 rounded cursor-pointer w-fit",
-  {
-    variants: {
-      variant: {
-        primary: "bg-gray-600 border border-gray-500 hover:bg-gray-500",
-      },
-      isSelected: {
-        true: "border-primary",
-      },
-      disabled: {
-        true: "bg-transparent text-gray-500 border-gray-600 pointer-events-none",
-      },
+export const TimeSelectVariants = cva("py-2 px-5 rounded cursor-pointer w-20", {
+  variants: {
+    variant: {
+      primary: "bg-gray-600 border border-gray-500 hover:bg-gray-500",
     },
-    defaultVariants: {
-      variant: "primary",
-      isSelected: false,
-      disabled: false,
+    isSelected: {
+      true: "border-primary",
+    },
+    disabled: {
+      true: "bg-transparent text-gray-500 border-gray-600 pointer-events-none",
     },
   },
-);
+  defaultVariants: {
+    variant: "primary",
+    isSelected: false,
+    disabled: false,
+  },
+});
 
 export const TimeSelectTextVariants = cva("", {
   variants: {

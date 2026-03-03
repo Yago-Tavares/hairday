@@ -19,6 +19,10 @@
   --color-gray-800: #19181B;
   --color-gray-900: #050505;
 
+  /* Base - Cores Erros */
+  --color-red: #ff3333; 
+  --color-red-light: #ff5555;
+
   /* Aliases semânticos */
   --color-primary: #B8952E;
   --color-primary-light: #DBC170;
@@ -32,19 +36,6 @@
   /* Tipografia - Fonte */
   --font-family-sans: "Catamaran", system-ui, sans-serif;
 
-  /* Tipografia - Tamanhos */
-  --font-size-title-lg: 32px;
-  --font-size-title-md: 16px;
-  --font-size-title-sm: 14px;
-  --font-size-text-md: 16px;
-  --font-size-text-sm: 14px;
-
-  /* Tipografia - Line Heights */
-  --line-height-title-lg: 24px;
-  --line-height-title-md: 24px;
-  --line-height-title-sm: 20px;
-  --line-height-text-md: 24px;
-  --line-height-text-sm: 20px;
 }
 
 /* Estilos base */
@@ -52,35 +43,4 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family-sans);
-}
-
-/* Classes de Tipografia */
-.title-lg {
-  font-size: var(--font-size-title-lg);
-  line-height: var(--line-height-title-lg);
-  font-weight: 700;
-}
-
-.title-md {
-  font-size: var(--font-size-title-md);
-  line-height: var(--line-height-title-md);
-  font-weight: 700;
-}
-
-.title-sm {
-  font-size: var(--font-size-title-sm);
-  line-height: var(--line-height-title-sm);
-  font-weight: 700;
-}
-
-.text-md {
-  font-size: var(--font-size-text-md);
-  line-height: var(--line-height-text-md);
-  font-weight: 400;
-}
-
-.text-sm {
-  font-size: var(--font-size-text-sm);
-  line-height: var(--line-height-text-sm);
-  font-weight: 400;
 }

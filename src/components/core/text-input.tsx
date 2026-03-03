@@ -1,42 +1,10 @@
 import { cva, cx, type VariantProps } from "class-variance-authority";
 import Icon from "./icon";
 import { TextVariants } from "./text";
-
-export const TextInputVariants = cva(
-  "rounded-lg border flex items-center justify-center gap-2 w-fit focus-within:border-primary",
-  {
-    variants: {
-      variant: {
-        primary: "border-gray-500",
-      },
-      size: {
-        md: "h-12 px-3 text-base",
-      },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "md",
-    },
-  },
-);
-
-export const IconInputVariants = cva("", {
-  variants: {
-    variant: {
-      primary: "fill-primary",
-    },
-    size: {
-      md: "w-5 h-5",
-    },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "md",
-  },
-});
+import { InputContainerVariants, InputIconVariants } from "./input";
 
 export const InputVariants = cva(
-  "outline-none text-gray-200 placeholder:text-gray-500",
+  "w-full outline-none text-gray-200 placeholder:text-gray-500",
   {
     variants: {
       disabled: {
@@ -49,8 +17,8 @@ export const InputVariants = cva(
 interface TextInputProps
   extends
     Omit<React.ComponentProps<"input">, "size" | "disabled">,
-    VariantProps<typeof TextInputVariants>,
-    VariantProps<typeof IconInputVariants>,
+    VariantProps<typeof InputContainerVariants>,
+    VariantProps<typeof InputIconVariants>,
     VariantProps<typeof InputVariants> {
   icon: React.ComponentProps<typeof Icon>["svg"];
 }
@@ -63,8 +31,8 @@ export default function TextInput({
   ...props
 }: TextInputProps) {
   return (
-    <div className={TextInputVariants({ variant, size })}>
-      <Icon svg={icon} className={IconInputVariants({ variant, size })} />
+    <div className={InputContainerVariants({ variant, size })}>
+      <Icon svg={icon} className={InputIconVariants({ variant, size })} />
       <input
         className={cx(InputVariants({ disabled }), TextVariants())}
         {...props}

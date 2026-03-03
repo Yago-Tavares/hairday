@@ -4,11 +4,11 @@ import React from "react";
 export const TextVariants = cva("", {
   variants: {
     variant: {
-      "title-lg": "text-size-title-lg leading-6 font-bold text-gray-100",
-      "title-md": "text-size-title-md leading-6 font-bold text-gray-200",
-      "title-sm": "text-size-title-sm leading-5 font-bold text-gray-300",
-      "text-md": "text-size-text-md leading-6 font-normal text-gray-200",
-      "text-sm": "text-size-text-sm leading-5 font-normal text-gray-300",
+      "title-lg": "text-2xl leading-6 font-bold text-gray-100",
+      "title-md": "text-md leading-6 font-bold text-gray-200",
+      "title-sm": "text-sm leading-5 font-bold text-gray-300",
+      "text-md": "text-md leading-6 font-normal text-gray-200",
+      "text-sm": "text-sm leading-5 font-normal text-gray-300",
     },
   },
   defaultVariants: {
